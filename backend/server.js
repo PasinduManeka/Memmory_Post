@@ -2,6 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+//access the routes files
+const posts = require("./routes/posts.routes.js");
+
 const app = express();
 require("dotenv").config();
 
@@ -12,6 +15,9 @@ app.use(cors());
 app.use(express.json({limited:"30mb", extended: true}));
 //send encoded url requests
 app.use(express.urlencoded({limited:"30mb", extended: true}));
+
+//url
+app.use("/post",posts);
 
 
 //set the URL 
