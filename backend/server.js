@@ -17,7 +17,7 @@ app.use(express.json({limited:"30mb", extended: true}));
 app.use(express.urlencoded({limited:"30mb", extended: true}));
 
 //url
-app.use("/post",posts);
+app.use("/posts",posts);
 
 
 //set the URL 
