@@ -7,11 +7,12 @@ import memories from './images/memories.png';
 import useStyles from './styles';
 
 const APP = () => {
+    const classes = useStyles();
     return ( 
         <Container maxisth="lg">
-            <AppBar position="statsic" color="inherit">
-                <Typography variant="h2" align="center">Memmories</Typography>
-                <img src={memories}  alt="memories" height="500" />
+            <AppBar className={classes.appBar} position="statsic" color="inherit">
+                <Typography className={classes.heading} variant="h2" align="center">Memmories</Typography>
+                <img className={classes.image} src={memories}  alt="memories" height="60" />
             </AppBar>
             {/*Grow just provide simple animation*/}
             <Grow in>
