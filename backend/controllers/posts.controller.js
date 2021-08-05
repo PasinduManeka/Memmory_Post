@@ -10,11 +10,18 @@ const getPosts = async(req,res)=>{
     }
 }
 
-const createPost = (req,res)=>{
+const createPost = async (req,res)=>{
+    //assign requested body
+    const post = req.body;
+    
+    //create new post
+    const newPost = new PostMessage(post);
     try{
-
+        //save the post
+        await newPost.save()
+        res.status(201).Json(newPost);
     }catch (error){
-
+        res.status(404).Json({message:error.message});
     }
 }
 
