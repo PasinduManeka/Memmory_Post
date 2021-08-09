@@ -8,21 +8,20 @@ const posts = require("./routes/posts.routes.js");
 const app = express();
 require("dotenv").config();
 
-//PORT
-const PORT = process.env.PORT || 5000;
-app.use(cors());
 //limit 30mb , due to we have to send images.
 app.use(express.json({limited:"30mb", extended: true}));
 //send encoded url requests
 app.use(express.urlencoded({limited:"30mb", extended: true}));
+app.use(cors());    
 
 //url
-app.use("/posts",posts);
+app.use('/posts',posts);
 
 
-//set the URL 
+//set the mongo url URL
 const URL = process.env.MONGODB_URL;
-
+//PORT
+const PORT = process.env.PORT || 5000;
 
 //connect to the database
 mongoose.connect(URL,{
