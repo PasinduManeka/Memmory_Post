@@ -9,13 +9,14 @@ const app = express();
 require("dotenv").config();
 
 //limit 30mb , due to we have to send images.
-app.use(express.json({limited:"30mb", extended: true}));
+app.use(express.json({limited:"60mb", extended: true}));
 //send encoded url requests
-app.use(express.urlencoded({limited:"30mb", extended: true}));
+app.use(express.urlencoded({limited:"60mb", extended: true}));
 app.use(cors());    
 
 //url
 app.use('/posts',posts);
+console.log("Haiyo");
 
 
 //set the mongo url URL
