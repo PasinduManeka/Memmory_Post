@@ -1,46 +1,55 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+//const bodyparser =  require("body-parser");
 
-//access the routes files
-const posts = require("./routes/posts.routes.js");
 
-const app = express();
+
+//middleware
+const app= express();
 require("dotenv").config();
 
-//limit 30mb , due to we have to send images.
-app.use(express.json({limited:"60mb", extended: true}));
-//send encoded url requests
-app.use(express.urlencoded({limited:"60mb", extended: true}));
-app.use(cors());    
-
-//url
-app.use('/posts',posts);
-console.log("Haiyo");
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 
-//set the mongo url URL
+//import the routes file
+const postRoutes = require("./routes/posts.routes.js");
+
+
+app.use(express.json({limit:"1000kb", extended: true }));
+app.use(express.urlencoded({ limit:"1000kb", extended: true }));
+app.use(cors());
+
+app.use('/posts', postRoutes);
+
+//Database URL
 const URL = process.env.MONGODB_URL;
-//PORT
-const PORT = process.env.PORT || 5000;
 
-//connect to the database
+//assign available port number
+const PORT = process.env.PORT || 5000; 
+
+//create the connection
 mongoose.connect(URL,{
     useCreateIndex:true,
     useNewUrlParser:true,
     useUnifiedTopology:true,
+    useFindAndModify:true
 });
 
-//create the connection
-const conn = mongoose.Connection;
+//open the connection
+const conn = mongoose.connection;
 mongoose.connection.once("open", ()=>{
-    console.log("MongoDB Connection success!!");
+    console.log("Mongodb connection success!!");
 })
 
-//listen to the PORT if connection success.
-app.listen(PORT,()=>{
-    console.log(`Server is up and running on port number: ${PORT}`)
+//display the port number 
+app.listen(PORT, ()=>{
+    console.log(`Server is up ad running on port number : ${PORT}`);
 })
 
-//make sure that we are not getting any nervous.
 mongoose.set('useFindAndModify', false);

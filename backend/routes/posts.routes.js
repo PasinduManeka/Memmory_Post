@@ -7,6 +7,6 @@ const router = express.Router();
 
 //Diaplay the records in database (GET)
 router.get("/",getPosts);
-router.get("/",createPost)
+router.post("/",createPost)
 
 module.exports=router;

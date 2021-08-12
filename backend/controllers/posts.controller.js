@@ -19,7 +19,7 @@ const createPost = async (req,res)=>{
     try{
         //save the post
         await newPost.save()
-        res.status(201).Json(newPost);
+        res.json(newPost);
     }catch (error){
         res.status(404).Json({message:error.message});
     }

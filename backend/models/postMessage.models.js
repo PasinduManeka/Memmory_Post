@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({
     title: String,
-    mssage: String,
+    message: String,
     creator: String,
     tags: [String],
     selectedFile: String,

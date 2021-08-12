@@ -11,10 +11,10 @@ const Posts = () => {
 
     console.log(posts)
     return ( 
-        <>
+        <div className={classes.actionDiv}>
             <h1>POSTS</h1>
             <Post />
-        </>
+        </div>
      );
 }
  
