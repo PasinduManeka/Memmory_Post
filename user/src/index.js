@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-/*provider is goig to keep track of that store which is that global sate
+/*provider is goig to keep track of that store which is that global state
 and data allows to access that store anywahere from inside the app.
 That state can be used anywhere.*/
 import { Provider } from "react-redux";
