@@ -1,14 +1,17 @@
 import axios from "axios";
 
-//Url for pointing to backend
+//* Url for pointing to backend
 const url = "http://localhost:5000/posts";
 
-//GET
+//* GET
 export const fetchPosts = () => axios.get(url);
 
-//POST
+//* POST
 export const createPost = (newPost) => axios.post(url, newPost);
 
-//UPDATE
+//* UPDATE
 export const updatePost = (id, updatedPost) =>
   axios.patch(`${url}/${id}`, updatedPost);
+
+//* DELETE
+export const deletePost = (id) => axios.delete(`${url}/${id}`);
