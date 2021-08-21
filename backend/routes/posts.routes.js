@@ -1,12 +1,17 @@
-const express =require("express");
+const express = require("express");
 
 //import control class methods.
-const {getPosts, createPost} = require("../controllers/posts.controller.js");
+const {
+  getPosts,
+  createPost,
+  updatePost,
+} = require("../controllers/posts.controller.js");
 
 const router = express.Router();
 
 //Diaplay the records in database (GET)
-router.get("/",getPosts);
-router.post("/",createPost)
+router.get("/", getPosts);
+router.post("/", createPost);
+router.patch("/:id", updatePost);
 
-module.exports=router;
+module.exports = router;
