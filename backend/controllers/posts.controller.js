@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const PostMessage = require("../models/postMessage.models.js");
 
 //get all blogs
@@ -35,13 +36,17 @@ const updatePost = async (req, res) => {
   console.log(post);
 
   //*Check is tho mongoose id
-  /*if (!mongoose.Types.ObjectId.isValid(_id))
-    return res.status(404).send("No post with that id.");*/
+  if (!mongoose.Types.ObjectId.isValid(_id))
+    return res.status(404).send("No post with that id.");
 
   //*Save the updated details
-  const newUpdatedPost = await PostMessage.findByIdAndUpdate(_id, post, {
-    new: true,
-  });
+  const newUpdatedPost = await PostMessage.findByIdAndUpdate(
+    _id,
+    { ...post, _id },
+    {
+      new: true,
+    }
+  );
 
   res.json(newUpdatedPost);
 };

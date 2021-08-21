@@ -69,7 +69,9 @@ persist and only change the specific text field*/
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">Creating a Memmory</Typography>
+        <Typography variant="h6">
+          {currentId ? "Editing" : "Creating"} a Memmory
+        </Typography>
         {/* Creator */}
         <TextField
           name="creator"
