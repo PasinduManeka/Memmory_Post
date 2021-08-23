@@ -13,7 +13,7 @@ import useStyles from "./styles";
 
 const APP = () => {
   const [currentId, setCurrentId] = useState(null);
-  //const classes = useStyles();
+  const classes = useStyles();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const APP = () => {
     <Router>
       <Container className="App">
         <Navbar />
-        <div className="content">
+        <div className="">
           <Switch>
             <Route exact path="/">
               <Container maxisth="lg">
