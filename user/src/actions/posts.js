@@ -14,7 +14,7 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
-//create new post
+//*create new post
 export const createPost = (post) => async (dispatch) => {
   try {
     //POST from the api
