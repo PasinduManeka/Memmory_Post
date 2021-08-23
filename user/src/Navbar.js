@@ -19,12 +19,12 @@ const Navbar = () => {
       />
       <div className="twobuttons">
         <div className="navbar links">
-          <a className="mask rgba-red-strong" href="/">
+          <Link className="mask rgba-red-strong" href="/">
             Home
-          </a>
-          <a className="bg-danger text-white rounded" href="/table">
+          </Link>
+          <Link className="bg-danger text-white rounded" href="/table">
             Table
-          </a>
+          </Link>
         </div>
       </div>
     </AppBar>
