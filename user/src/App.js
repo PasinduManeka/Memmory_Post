@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./Navbar";
-import Table from "./components/Posts/Table";
+import Table from "./components/Posts/table";
 import { getPosts } from "./actions/posts";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";

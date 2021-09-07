@@ -19,10 +19,10 @@ const Navbar = () => {
       />
       <div className="twobuttons">
         <div className="navbar links">
-          <Link className="mask rgba-red-strong" href="/">
+          <Link className="mask rgba-red-strong" to="/">
             Home
           </Link>
-          <Link className="bg-danger text-white rounded" href="/table">
+          <Link className="bg-danger text-white rounded" to="/table">
             Table
           </Link>
         </div>

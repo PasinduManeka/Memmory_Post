@@ -1,16 +1,24 @@
 import React from "react";
 import { CircularProgress } from "@material-ui/core";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const Tableview = () => {
+import { deletePost } from "../../actions/posts";
+
+const Tableview = ({ post }) => {
   const posts = useSelector((state) => state.posts);
+  const dispatch = useDispatch();
 
-  const handleDelete = () => {};
+  /* const handleDelete = (id, e) => {
+    e.preventDefault();
 
+    dispatch(deletePost(id));
+  };
+*/
   return !posts.length ? (
     <CircularProgress />
   ) : (
-    <card class="bg-light">
+    <card className="bg-light">
       <table className="table table-bordered text-white">
         <thead>
           <tr>
@@ -31,8 +39,12 @@ const Tableview = () => {
               <td>
                 <div>
                   <button
-                    className="btn btn-outline-danger"
-                    onClick={handleDelete}
+                    className="btn btn-danger"
+                    onClick={(e) => {
+                      e.preventDefault();
+
+                      dispatch(deletePost(post._id));
+                    }}
                   >
                     DELETE
                   </button>
