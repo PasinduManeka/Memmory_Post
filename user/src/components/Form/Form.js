@@ -109,7 +109,9 @@ persist and only change the specific text field*/
           label="Tags"
           fullWidth
           value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+          onChange={(e) =>
+            setPostData({ ...postData, tags: e.target.value.split(",") })
+          }
         />
         {/* Image choose */}
         <div className={classes.fileInput}>
