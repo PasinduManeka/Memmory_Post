@@ -3,7 +3,7 @@ import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Table from "./components/Posts/table";
 import { getPosts } from "./actions/posts";
 import Posts from "./components/Posts/Posts";
