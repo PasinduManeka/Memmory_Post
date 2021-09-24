@@ -37,10 +37,9 @@ const PORT = process.env.PORT || 5000;
 
 //create the connection
 mongoose.connect(URL, {
-  useCreateIndex: true,
+  useFindAndModify: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: true,
 });
 
 //open the connection
