@@ -20,12 +20,6 @@ const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const handleDelete = (e) => {
-    e.preventDefault();
-
-    dispatch(deletePost(post._id));
-  };
-
   return (
     <Card className={classes.card}>
       <CardMedia
@@ -67,7 +61,11 @@ const Post = ({ post, setCurrentId }) => {
           Like
           {post.likeCount}
         </Button>
-        <Button size="small" color="primary" onClick={handleDelete}>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(deletePost(post._id))}
+        >
           <DeleteIcon fontSize="small" />
           Delete
         </Button>

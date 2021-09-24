@@ -48,12 +48,11 @@ const Form = ({ currentId, setCurrentId }) => {
       //conosole.log(currentId);
       //console.log(postData);
       dispatch(updatePost(currentId, postData));
-      clear();
     } else {
-      console.log(currentId);
+      //*console.log(currentId);
       dispatch(createPost(postData));
-      clear();
     }
+    clear();
   };
 
   /*In onChange={(e) => setPostData({...postData, creator: e.target.value})}If we does samething to every textfield only change the last property that means  older data will be 

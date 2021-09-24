@@ -51,6 +51,7 @@ const updatePost = async (req, res) => {
   res.json(newUpdatedPost);
 };
 
+//Delete the blog
 const deletePost = async (req, res) => {
   const { id } = req.params;
 
